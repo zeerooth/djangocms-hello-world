@@ -14,6 +14,11 @@ if sys.argv[-1] == 'publish':
     os.system('python setup.py bdist_wheel upload')
     sys.exit()
 
+TEST_REQUIREMENTS = [
+    'pytest',
+    'pytest-django',
+]
+
 setup(
     name="djangocms-hello-world",
     version=version,
@@ -39,5 +44,6 @@ setup(
         "Django >= 1.11",
         "django-cms >= 3.4",
     ],
+    tests_require=TEST_REQUIREMENTS,
     zip_safe=False,
 )
