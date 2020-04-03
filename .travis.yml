@@ -27,7 +27,6 @@ install:
 # command to run tests, e.g. python setup.py test
 script: 
   COMMAND='coverage run' tox -e$TOXENV
-  COMMAND='pytest' tox -e$TOXENV
 
 before_install:
   - pip install codecov
