@@ -13,7 +13,6 @@ env:
   - DJANGO='django22' CMS='cms37'
   - DJANGO='django21' CMS='cms36'
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
   - pip install -U tox>=1.8 coveralls
   - "if [[ $TRAVIS_PYTHON_VERSION == '3.5' ]]; then export PYVER=py35; fi"
@@ -22,7 +21,9 @@ install:
   - "if [[ $TRAVIS_PYTHON_VERSION == '3.8' ]]; then export PYVER=py38; fi"
   - "if [[ ${DJANGO}z != 'z' ]]; then export TOXENV=$PYVER-$DJANGO-$CMS; fi"
 
-# command to run tests, e.g. python setup.py test
+before_script:
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
+
 script: 
   - export DJANGO_SETTINGS_MODULE=sandbox.settings && COMMAND='coverage run' tox -e$TOXENV
 
