@@ -12,8 +12,6 @@ env:
   - DJANGO='django22' CMS='cms37'
   - DJANGO='django22' CMS='cms37'
   - DJANGO='django21' CMS='cms36'
-  - DJANGO='django111' CMS='cms37'
-  - DJANGO='django111' CMS='cms36'
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
@@ -26,10 +24,10 @@ install:
 
 # command to run tests, e.g. python setup.py test
 script: 
+  export DJANGO_SETTINGS_MODULE=sandbox.settings
   COMMAND='coverage run' tox -e$TOXENV
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=sandbox.settings
   - pip install codecov
 after_success:
   - codecov
