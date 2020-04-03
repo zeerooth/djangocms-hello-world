@@ -29,6 +29,7 @@ script:
   COMMAND='coverage run' tox -e$TOXENV
 
 before_install:
+  - export DJANGO_SETTINGS_MODULE=sandbox.settings
   - pip install codecov
 after_success:
   - codecov
