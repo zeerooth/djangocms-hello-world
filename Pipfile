@@ -1,0 +1,45 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+# VS CODE
+pylint = "*"
+## Security issues
+bandit = "*"
+## PEP8 + types
+mypy = ">=0.730"
+ipython = "*"
+autopep8 = "*"
+## hit F2 and rename all variable occurences 
+rope = "*"
+# DOCS
+# TESTS
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+pytest-django = "*"
+## parallel tests to speedup tests execution pytest -n <number of processes>
+pytest-xdist = "*"
+mutmut = "*"
+# DJANGO
+django-debug-toolbar = "*"
+## mypy can interprets types
+django-stubs = "*"
+## Create a graph excluding certain models
+## ./manage.py graph_models -a -X Foo,Bar -o my_project_sans_foo_bar.png
+## ./manage.py graph_models foo bar -o my_project.dot
+pygraphviz = "*"
+Sphinx = "*"
+sphinx-autodoc-typehints = "*"
+pylint-django = "*"
+mkdocs = "*"
+mkdocs-material = "*"
+
+[packages]
+django-cms = "*"
+Django = "*"
+
+[requires]
+python_version = "3.7"

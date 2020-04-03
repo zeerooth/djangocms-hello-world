@@ -1,0 +1,8 @@
+-e .
+pytest
+pep8
+coverage<5.0
+flake8>=2.1.0
+tox>=1.7.0
+pytest-django
+wheel
