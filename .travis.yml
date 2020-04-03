@@ -25,7 +25,7 @@ install:
 # command to run tests, e.g. python setup.py test
 script: 
   export DJANGO_SETTINGS_MODULE=sandbox.settings
-  COMMAND='coverage run' tox -e$TOXENV
+  COMMAND='coverage run' tox -e $TOXENV
 
 before_install:
   - pip install codecov
