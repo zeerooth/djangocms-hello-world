@@ -24,7 +24,7 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 
 lint:
-	tox -e pep8
+	tox -epep8
 
 test:
 	python setup.py test
