@@ -4,30 +4,22 @@ import sys
 
 version = "1.0.0"
 
-if sys.argv[-1] == 'publish':
-    try:
-        import wheel  # NOQA
-    except ImportError:
-        print('Wheel library missing. Please run "pip install wheel"')
-        sys.exit()
-    os.system('python setup.py sdist upload')
-    os.system('python setup.py bdist_wheel upload')
-    sys.exit()
-
 TEST_REQUIREMENTS = [
     'pytest',
     'pytest-django',
+    'django',
+    'django-cms'
 ]
 
 setup(
     name="djangocms-hello-world",
     version=version,
-    url='https://github.com/Zeerooth/cmsplugin-slick-gallery',
+    url='https://github.com/Zeerooth/djangocms-hello-world',
     packages=find_packages(where='src'),
     include_package_data=True,
     package_dir={'': 'src'},
     license='BSD',
-    description="test project for automation demonstration",
+    description="test project for automation demonstration in django-cms",
     long_description=open('README.md').read(),
     author='Radosław Stępień',
     author_email='rstepien@cloudferro.com',
