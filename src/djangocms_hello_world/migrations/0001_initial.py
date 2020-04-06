@@ -17,15 +17,15 @@ class Migration(migrations.Migration):
             name='HelloWorldPlugin',
             fields=[
                 ('cmsplugin_ptr', models.OneToOneField(
-                    auto_created=True, 
-                    on_delete=django.db.models.deletion.CASCADE, 
-                    parent_link=True, 
-                    primary_key=True, 
-                    related_name='djangocms_hello_world_helloworldplugin', 
+                    auto_created=True,
+                    on_delete=django.db.models.deletion.CASCADE,
+                    parent_link=True,
+                    primary_key=True,
+                    related_name='djangocms_hello_world_helloworldplugin',
                     serialize=False, to='cms.CMSPlugin')),
                 ('text', models.TextField(
-                    blank=True, 
-                    null=True, 
+                    blank=True,
+                    null=True,
                     verbose_name='Your custom text')),
             ],
             options={

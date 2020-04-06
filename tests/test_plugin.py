@@ -7,6 +7,7 @@ from cms.plugin_rendering import ContentRenderer
 
 from djangocms_hello_world.cms_plugins import HelloWorldPluginBase
 
+
 class MypluginTests(TestCase):
 
     def test_plugin_context(self):
