@@ -35,7 +35,7 @@ matrix:
 
 jobs:
   include:
-    - stage: deploy
+    - name: deploy
       python: 3.8
       install: skip
       script: skip
