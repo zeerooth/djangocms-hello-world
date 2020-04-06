@@ -1,44 +1,40 @@
 dist: xenial
 language: python
 
-python:
-  - 3.8
-  - 3.7
-  - 3.6
-
-env:
-  matrix:
-  - TOXENV='pep8'
-  - DJANGO='django22' CMS='cms37'
-  - DJANGO='django22' CMS='cms37'
-  - DJANGO='django21' CMS='cms36'
-
-install:
-  - pip install -U tox>=1.8 coveralls
-  - "if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then export PYVER=py36; fi"
-  - "if [[ $TRAVIS_PYTHON_VERSION == '3.7' ]]; then export PYVER=py37; fi"
-  - "if [[ $TRAVIS_PYTHON_VERSION == '3.8' ]]; then export PYVER=py38; fi"
-  - "if [[ ${DJANGO}z != 'z' ]]; then export TOXENV=$PYVER-$DJANGO-$CMS; fi"
-
-script: COMMAND='coverage run' tox -e$TOXENV
-
-before_install:
-  - pip install codecov
-after_success:
-  - codecov
-  - coveralls
-
-matrix:
-  exclude:
-  - python: 3.6
-    env: TOXENV='pep8'
-
 stages:
 - test
 - deploy
 
 jobs:
   include:
+    - stage: test
+      python:
+      - 3.8
+      - 3.7
+      - 3.6
+      env:
+        matrix:
+        - TOXENV='pep8'
+        - DJANGO='django22' CMS='cms37'
+        - DJANGO='django22' CMS='cms37'
+        - DJANGO='django21' CMS='cms36'
+      install:
+        - pip install -U tox>=1.8 coveralls
+        - "if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then export PYVER=py36; fi"
+        - "if [[ $TRAVIS_PYTHON_VERSION == '3.7' ]]; then export PYVER=py37; fi"
+        - "if [[ $TRAVIS_PYTHON_VERSION == '3.8' ]]; then export PYVER=py38; fi"
+        - "if [[ ${DJANGO}z != 'z' ]]; then export TOXENV=$PYVER-$DJANGO-$CMS; fi"
+      script: COMMAND='coverage run' tox -e$TOXENV
+      before_install:
+        - pip install codecov
+      after_success:
+        - codecov
+        - coveralls
+      matrix:
+        exclude:
+        - python: 3.6
+          env: TOXENV='pep8'
+
     - stage: deploy
       python: 3.8
       install: skip
