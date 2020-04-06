@@ -1,5 +1,6 @@
 import os  # isort:skip
-gettext = lambda s: s
+from typing import Dict, List
+
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
 Django settings for sandbox project.
@@ -13,7 +14,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-from typing import Dict, List
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -86,7 +86,9 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'sandbox', 'templates'),],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'sandbox', 'templates'),
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -146,16 +148,16 @@ INSTALLED_APPS = [
 ]
 
 LANGUAGES = (
-    ## Customize this
-    ('en', gettext('en')),
+    # Customize this
+    ('en', 'English'),
 )
 
 CMS_LANGUAGES = {
-    ## Customize this
+    # Customize this
     1: [
         {
             'code': 'en',
-            'name': gettext('en'),
+            'name': 'English',
             'redirect_on_fallback': True,
             'public': True,
             'hide_untranslated': False,
@@ -169,7 +171,7 @@ CMS_LANGUAGES = {
 }
 
 CMS_TEMPLATES = (
-    ## Customize this
+    # Customize this
     ('fullwidth.html', 'Fullwidth'),
     ('sidebar_left.html', 'Sidebar Left'),
     ('sidebar_right.html', 'Sidebar Right')

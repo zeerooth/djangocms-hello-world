@@ -6,9 +6,9 @@ from cms.models import Placeholder
 from cms.plugin_rendering import ContentRenderer
 
 from djangocms_hello_world.cms_plugins import HelloWorldPluginBase
-from djangocms_hello_world.models import HelloWorldPlugin
 
 class MypluginTests(TestCase):
+
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')
         model_instance = add_plugin(
