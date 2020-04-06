@@ -1,10 +1,6 @@
 dist: xenial
 language: python
 
-stages:
-- test
-- deploy
-
 python:
   - 3.8
   - 3.7
@@ -37,6 +33,11 @@ matrix:
   - python: 3.6
     env: TOXENV='pep8'
 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
 jobs:
   include:
     - stage: test
@@ -50,8 +51,6 @@ jobs:
         skip_upload_docs: true
         skip_cleanup: true
         distributions: "sdist bdist_egg bdist_wheel"
-        on:
-          branch: master
         password:
           secure: "srI1VOeOoF2Z1WaZnrAfEBBAbzJYs40HmqWpRHGuwk4L5xNxU+bBgaLw1ASc6Bp+rKvAR52wLdHszIXZaNTe/nNKiiMFpGpxBWaI1JNb/s+grBPUjQAtg6gyUyg09cV+t7kILBqHOInMCyIpil5FkUvbd9Wmf1vgq7PK+XSR3LkALm3U0syBn6VSULIfgsck5I6ItUKpR82qzUAOg0Ak/d4Pp9jkKUJ0GVotMRNgUUJVD9QCBP4x0dNqsiTBlUVe/doD5LPkgSO6jjaZR0VfyhUAkK+0lyk3/M8kShn/GkvlUQ0Th+Feo79gcUbz4CwXUTM+PaWgSQTD8+/QAGZ+m7gM2Edgim0uhkibGBjw63ddP99/oW826SJaVYdp52Ab8iVVH2Yo3D6iQpblBsoM7nLgKwaRscrga3+HNLW1hQOD6nZPzPSzH8jrshWV4kpR+s1NNcHc2kqUhMHpGATS4KvaqCbUfca/y4J/DmzY/RQ5DhZ4SBwG8XdwurQ4XVd7nZREg298kenwlt/nCsKzatNHVfNWtK2UOCtyYi59yYSjjFxLLX0rH9UgGQl6xH/r2k322/4FUDOngdBCrrnVHJZP3wnJkx+Pb7mhkp4HjLVcoQzOM03WwGNEykV93X/o5en4eNooGbjr7HhpfJXhsT0T/4LoJT097GDP+pUMSlg="
         server: https://test.pypi.org/
