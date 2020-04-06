@@ -8,10 +8,10 @@ python:
 
 env:
   matrix:
-  - TOXENV='pep8'
   - DJANGO='django22' CMS='cms37'
   - DJANGO='django22' CMS='cms37'
   - DJANGO='django21' CMS='cms36'
+  - TOXENV='pep8'
 
 install:
   - pip install -U tox>=1.8 coveralls
