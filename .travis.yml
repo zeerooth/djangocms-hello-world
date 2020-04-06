@@ -35,6 +35,8 @@ matrix:
   include:
   - stage: deploy
     python: 3.8
+    install: skip
+    script: skip
     deploy:
       provider: pypi
       user: "__token__"
