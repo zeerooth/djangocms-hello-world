@@ -4,7 +4,6 @@ python:
   - 3.8
   - 3.7
   - 3.6
-  - 3.5
 
 env:
   matrix:
@@ -30,8 +29,6 @@ after_success:
 
 matrix:
   exclude:
-  - python: 3.5
-    env: TOXENV='pep8'
   - python: 3.6
     env: TOXENV='pep8'
 
