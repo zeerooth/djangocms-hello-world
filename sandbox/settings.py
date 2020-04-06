@@ -157,14 +157,6 @@ INSTALLED_APPS = [
     'djangocms_bootstrap4.contrib.bootstrap4_picture',
     'djangocms_bootstrap4.contrib.bootstrap4_tabs',
     'djangocms_bootstrap4.contrib.bootstrap4_utilities',
-    'djangocms_file',
-    'djangocms_icon',
-    'djangocms_link',
-    'djangocms_picture',
-    'djangocms_style',
-    'djangocms_snippet',
-    'djangocms_googlemap',
-    'djangocms_video',
     'sandbox',
     'djangocms_hello_world'
 ]
