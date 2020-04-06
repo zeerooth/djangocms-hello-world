@@ -1,6 +1,10 @@
 dist: xenial
 language: python
 
+stages:
+- test
+- deploy
+
 python:
   - 3.8
   - 3.7
@@ -35,7 +39,8 @@ matrix:
 
 jobs:
   include:
-    - name: deploy
+    - stage: test
+    - stage: deploy
       python: 3.8
       install: skip
       script: skip
