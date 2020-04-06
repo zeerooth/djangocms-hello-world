@@ -36,8 +36,7 @@ matrix:
   - stage: deploy
     python: 3.8
     install: skip
-    script: 
-      - python setup.py sdist
+    script: skip
     deploy:
       provider: pypi
       user: "__token__"
