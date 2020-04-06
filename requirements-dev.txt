@@ -1,0 +1,10 @@
+-r requirements.txt
+Django<3.0
+django-cms>3.5,<= 3.7
+pytest
+pep8
+coverage<5.0
+flake8>=2.1.0
+tox>=1.7.0
+pytest-django
+wheel
