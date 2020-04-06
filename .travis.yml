@@ -35,13 +35,10 @@ matrix:
   include:
   - stage: deploy
     python: 3.8
-    install: skip
-    script: skip
     deploy:
       provider: pypi
       user: "__token__"
       skip_upload_docs: true
-      skip_cleanup: true
       distributions: "sdist"
       password:
         secure: Q1Qmr8WJJBrVURpZeRy693nPigYbgpW18Jgyu5R1xkJ/DkaXw7fYoPGhLmVIsxNFOks3shnXcI4cNofYtglpTqj9T/3JcPH3YzEp6pq17BUOCRnjuhosgqvaZwGdCHLv4kRAPxaWtY8ByEmDdjKcB5sRFjGIMxubAKqnBwGRKe13SNmGFApHc2rI90zHHztPhZRscObU8iyxDy/2/zsalf13pzgbOv10sU9xXRIrmNa7j/JoY4D+8cgNIGqmE0Ibb6DeM69pqXd9DGjf3p5ZVaUZlwi5qRKCYm3TC08N+pEe8XoF2nFx/N5f+8PS88lpaobp7aY6rfoUJabO2abF7z4vXe6y96ZYyVlWmIvAKHv4aizop7f3UjkJfqpLjGWFHtuyY46UNd982Fd6qTRF9QqT3jXMRuYKIJP/6Tm58fUkcVmkbvraSzmKT9JACSg8pl4+CGrK9q/YZcoDpUULSV451c0jPNj/wEMQhPQ3h69YPF0eVLbbdl6spPUdPID9M2404RFbCWhCN4aIPYmovaEaywM2xv7Py+vTh2VcYPISQVzg7Tdq/bcmfNqlL6EPCWKLug1KT/2GTJdDuQ/TxJYtvWrLZx6dzoqDm+oTe4g9s1JEDgQNj7RpZ/c/N4BK0+qAg8YhYBCqzo4/9zYKb1Z1S3kw3kXLANCkDKA06OI=
